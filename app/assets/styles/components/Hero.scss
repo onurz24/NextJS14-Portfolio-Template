@@ -1,0 +1,92 @@
+@import "../globals/_css-resets.scss";
+@import "../globals/_mixins.scss";
+@import "../globals/_variables.scss";
+@import "../globals/_media-queries.scss";
+@import "../globals/_font-face";
+
+
+.Hero{
+    position: relative;
+    margin-top: 60px;
+    height: 650px;
+    // height: calc(100vh - 80px);
+    width: 100%;
+    background-color: $Hero_BG_Color;
+    overflow: hidden;
+}
+
+.Hero_Video{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background : url("../../Images/Hero_BG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(4px);
+
+    video{
+        height: 100%;
+        width: 100%;
+        object-fit: cover
+    }
+    img{
+        display: none;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        filter: blur(4px);
+        scale: 1.01;
+
+    }
+}
+.Hero_Content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    @include zentrieren(center,center,column);
+
+
+    @media screen and (max-width : $Mobile_Breakpoint) {
+        padding-bottom: 5em;
+    }
+
+
+    #Hero_Typewriter{
+        color: $Hero_Color;
+        font-size: 48px;
+        font-family: "Poppins";
+        font-weight: 500;
+        color: rgba(0, 113,227, 1);
+        color : $Primary_Font_Color;
+        @media screen and (max-width : $Mobile_Breakpoint) {
+            font-size: 32px;
+        }
+    }
+    .Hero_Btn{
+        @include zentrieren(center,center,row);
+        .Hero_LearnMore_Btn{
+            color: white;
+            margin: 1em;
+            cursor: pointer;
+            padding: 1em;
+            font-family: "Poppins";
+            font-weight: 500;
+        }
+        .Hero_ContactNow_Btn{
+            color: white;
+            border: 2px solid white;
+            border-radius: 4px;
+            font-family: "Poppins";
+            font-weight: 500;
+            padding: .5em;
+            cursor: pointer;
+        }
+        @media screen and (max-width : $Mobile_Breakpoint) {
+            flex-direction: column;
+            font-size: 1.25em;
+        }
+    }
+}
